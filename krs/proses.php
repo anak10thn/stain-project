@@ -18,18 +18,31 @@
  * 		created by ibnu yahya <ibnu.yahya@toroo.org>
  * 
  */
-$array_label = array("Id Prodi : ","Kode_Prodi : ","Prodi : ","","");
-$array_type = array("text","text","text","hidden","submit");
-$array_name = array("id_prodi","kd_prodi","prodi","update","kirim");
-$array_value = array("","","","no","Submit");
-$tag_app = "<tr><td><fieldset>:</fieldset></td></tr>";
-$tag_opt = "<tr><td><div id='button'>:</div></td></tr>";
-$array_class = "effect";
-$array_id = $array_name;
-$input_tag = array($tag_app,$tag_app,$tag_app,$tag_opt,$tag_opt);
-echo ("<form  id='".$modul_name."' action='".HOSTNAME."plugin/".$modul_name."/proses.php' method='POST'><center><table border='0'>");
-tcake_view::show('form')->view($array_label,$array_type,$array_name,$array_value,$array_class,$array_id,$input_tag);
-echo ("</table></center></form>");
+include ("../../inc/define.php");
+include(CONF);
+include(CONTROLLER);
+tcake_controller::database('mysql')->connect($host,$user,$pass);
+$tb = "krs";
+$array_field = array("id_krs","krs");
+$array_value = array($_POST['id_krs'],$_POST['krs']);
+$id_field = "id_krs";
+$id_value = $_POST['id_krs'];
+
+$path = tcake_controller::path()->path_info();		
+if ($_POST[update] == "yes") {
+	tcake_controller::database('mysql')->db_update($tb,$array_field,$array_value,"kd_jurusan",$_POST[kd_jurusan]);
+	echo "Data berhasil di update!";
+}
+else if ($_POST[update] == "no") {	
+	tcake_controller::database('mysql')->db_insert($tb,$array_field,$array_value);
+	echo "Data berhasil di insert!";
+}
+else if ($path[1] == "delete") {
+	tcake_controller::database('mysql')->db_delete($tb,$id_field,$id_value);
+	echo "Data berhasil di delete!";
+}
+else {
+	echo ("HALAMAN TIDAK DIKETAHUI");
+}
 
 ?>
-

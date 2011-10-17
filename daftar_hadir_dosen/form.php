@@ -18,18 +18,17 @@
  * 		created by ibnu yahya <ibnu.yahya@toroo.org>
  * 
  */
-$modul_name = "daftar_hadir_dosen";
-$array_label = array("Id DaftarHadir Dosen : ","Id Dosen : ","Pertemuan Ke : ","Hari : ","Tanggal : ","Pokok Bahasan : ","Jumlah Mahasiswa Hadir : ","Kode Matakuliah : ","Kode Ruangan : ","Keterangan : ","","");
+$array_label = array("Id Daftar Hadir Dosen : ","Id Dosen : ","Pertemuan Ke : ","Hari : ","Tanggal : ","Pokok Bahasan : ","Jumlah Mahasiswa Hadir : ","Kode Matakuliah : ","Kode Ruangan : ","Keterangan : ","","");
 $array_type = array("text","text","text","text","text","text","text","text","text","text","hidden","submit");
-$array_name = array("id_daftarhadir_dosen","id_dosen","pertemuan_ke","hari","tanggal","pokok_bahasan","jumlah_mahasiswa_hadir","kd_matakuliah","kd_ruangan","keterangan","update","kirim");
-$array_value = array("","","","","","","","","","","","Submit");
+$array_name = array("id_daftar_hadir_dosen","id_dosen","pertemuan_ke","hari","tanggal","pokok_bahasan","jumlah_mahasiswa_hadir","kd_matakuliah","kd_ruangan","keterangan","update","kirim");
+$array_value = array("","","","","","","","","","","no","Submit");
 $tag_app = "<tr><td><fieldset>:</fieldset></td></tr>";
 $tag_opt = "<tr><td><div id='button'>:</div></td></tr>";
 $array_class = "effect";
 $array_id = $array_name;
 $input_tag = array($tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_opt,$tag_opt);
-echo ("<form  id='".$modul_name."' action='".HOSTNAME."plugin/".$modul_name."/db_proses.php' method='POST'><center><table border='0'>");
-form_input($array_label,$array_type,$array_name,$array_value,$array_class,$array_id,$input_tag);
+echo ("<form  id='".$modul_name."' action='".HOSTNAME."plugin/".$modul_name."/proses.php' method='POST'><center><table border='0'>");
+tcake_view::show('form')->view($array_label,$array_type,$array_name,$array_value,$array_class,$array_id,$input_tag);
 echo ("</table></center></form>");
 
 ?>

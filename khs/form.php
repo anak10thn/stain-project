@@ -18,18 +18,17 @@
  * 		created by ibnu yahya <ibnu.yahya@toroo.org>
  * 
  */
-$modul_name = "khs";
 $array_label = array("Id Khs : ","Id Mahasiswa : ","Kode Jurusan :","Kode Prodi : ","Semester : ","Kode Matakuliah : ","Mk Skt : ","Sks : ","Nh : ","Kxn : ","Ip Semester ini : ","Ip Semester lalu : ","Ipk : ","","");
 $array_type = array("text","text","text","text","text","text","text","text","text","text","text","text","text","text","hidden","submit");
 $array_name = array("id_khs","id_mahasiswa","kd_jurusan","kd_prodi","semester","kd_matakuliah","mk_skt","sks","nh","kxn","ip_semester_ini","ip_semester_lalu","ipk","update","kirim");
-$array_value = array("","","","","","","","","","","","","","","","Submit");
+$array_value = array("","","","","","","","","","","","","","","no","Submit");
 $tag_app = "<tr><td><fieldset>:</fieldset></td></tr>";
 $tag_opt = "<tr><td><div id='button'>:</div></td></tr>";
 $array_class = "effect";
 $array_id = $array_name;
 $input_tag = array($tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_opt,$tag_opt);
-echo ("<form  id='".$modul_name."' action='".HOSTNAME."plugin/".$modul_name."/db_proses.php' method='POST'><center><table border='0'>");
-form_input($array_label,$array_type,$array_name,$array_value,$array_class,$array_id,$input_tag);
+echo ("<form  id='".$modul_name."' action='".HOSTNAME."plugin/".$modul_name."/proses.php' method='POST'><center><table border='0'>");
+tcake_view::show('form')->view($array_label,$array_type,$array_name,$array_value,$array_class,$array_id,$input_tag);
 echo ("</table></center></form>");
 
 ?>

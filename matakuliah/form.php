@@ -18,18 +18,17 @@
  * 		created by ibnu yahya <ibnu.yahya@toroo.org>
  * 
  */
-$modul_name = "matakuliah";
-$array_label = array("Kode Matakuliah : ","Nama Matakuliah : ","Sks : ","Semester : ","Kode jurusan : ","kode Prodi : ","Tahun Kurikulum","Jenis Matakuliah","Id Dosen","","");
-$array_type = array("text","text","text","text","text","text","text","text","text","hidden","submit");
-$array_name = array("kd_matakuliah","nama_matakuliah","sks","semester","kd_jurusan","kd_prodi","thn_kurikulum","jenis_matakuliah","id_dosen","update","kirim");
-$array_value = array("","","","","","","","","","","Submit");
+$array_label = array("Id Matakuliah : ","Kode Matakuliah : ","Nama Matakuliah : ","Sks : ","Semester : ","Kode jurusan : ","kode Prodi : ","Tahun Kurikulum","Jenis Matakuliah","Id Dosen","","");
+$array_type = array("text","text","text","text","text","text","text","text","text","text","hidden","submit");
+$array_name = array("id_matakuliah","kd_matakuliah","nama_matakuliah","sks","semester","kd_jurusan","kd_prodi","thn_kurikulum","jenis_matakuliah","id_dosen","update","kirim");
+$array_value = array("","","","","","","","","","","no","Submit");
 $tag_app = "<tr><td><fieldset>:</fieldset></td></tr>";
 $tag_opt = "<tr><td><div id='button'>:</div></td></tr>";
 $array_class = "effect";
 $array_id = $array_name;
-$input_tag = array($tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_opt,$tag_opt);
-echo ("<form  id='".$modul_name."' action='".HOSTNAME."plugin/".$modul_name."/db_proses.php' method='POST'><center><table border='0'>");
-form_input($array_label,$array_type,$array_name,$array_value,$array_class,$array_id,$input_tag);
+$input_tag = array($tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_app,$tag_opt,$tag_opt);
+echo ("<form  id='".$modul_name."' action='".HOSTNAME."plugin/".$modul_name."/proses.php' method='POST'><center><table border='0'>");
+tcake_view::show('form')->view($array_label,$array_type,$array_name,$array_value,$array_class,$array_id,$input_tag);
 echo ("</table></center></form>");
 
 ?>

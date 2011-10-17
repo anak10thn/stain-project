@@ -18,18 +18,30 @@
  * 		created by ibnu yahya <ibnu.yahya@toroo.org>
  * 
  */
-$array_label = array("Id Prodi : ","Kode_Prodi : ","Prodi : ","","");
-$array_type = array("text","text","text","hidden","submit");
-$array_name = array("id_prodi","kd_prodi","prodi","update","kirim");
-$array_value = array("","","","no","Submit");
-$tag_app = "<tr><td><fieldset>:</fieldset></td></tr>";
-$tag_opt = "<tr><td><div id='button'>:</div></td></tr>";
-$array_class = "effect";
-$array_id = $array_name;
-$input_tag = array($tag_app,$tag_app,$tag_app,$tag_opt,$tag_opt);
-echo ("<form  id='".$modul_name."' action='".HOSTNAME."plugin/".$modul_name."/proses.php' method='POST'><center><table border='0'>");
-tcake_view::show('form')->view($array_label,$array_type,$array_name,$array_value,$array_class,$array_id,$input_tag);
-echo ("</table></center></form>");
 
 ?>
 
+	$('#jurusan').submit(function() {
+		$.ajax({
+			type: 'POST',
+			url: $(this).attr('action'),
+			data: $(this).serialize(),
+			success: function(data) {
+				alert(data);
+				$('input#id_daftar_hadir_kuliah').val('');
+				$('input#id_mahasiswa').val('');
+				$('input#semester').val('');
+				$('input#pertemuan_ke').val('');
+				$('input#kd_jurusan').val('');
+				$('input#kd_prodi').val('');
+				$('input#hari').val('');
+				$('input#jam').val('');
+				$('input#kd_matakuliah').val('');
+				$('input#kd_ruangan').val('');
+				$('input#keterangan').val('');
+				$('input#update').val('no');
+			}
+		})
+		return false;
+	});
+	
