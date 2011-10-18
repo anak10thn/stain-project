@@ -46,3 +46,7 @@
 		return false;
 	});
 	
+$('#tanggal').datepicker({
+		changeMonth:true,
+		changeYear:true
+	});

@@ -54,3 +54,12 @@
 		return false;
 	});
 	
+$('#tgl_lahir').datepicker({
+		changeMonth:true,
+		changeYear:true
+	});
+	
+$('#tgl_surat').datepicker({
+		changeMonth:true,
+		changeYear:true
+	});
